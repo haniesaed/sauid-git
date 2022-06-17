@@ -1,0 +1,16 @@
+app.use(fileupload());
+app.get("/", (req, res, next) => {
+   res.status (200).send("Hello world");
+});
+app.post("/upload", function(req, res, next) {
+    const file = req.files.photo;
+    file.mv("/uploads/"+file.name, function(err, result) {
+        if(err)
+            throw èrr;
+        res.send({
+            success: true,
+            message: "File uploaded!"
+        });
+    });
+})
+                                                               
